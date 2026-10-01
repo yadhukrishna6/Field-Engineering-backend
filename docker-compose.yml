@@ -1,6 +1,4 @@
-﻿version: '3.8'
-
-services:
+﻿services:
   postgres:
     image: postgres:16-alpine
     container_name: field_backend_postgres
@@ -9,7 +7,7 @@ services:
       POSTGRES_USER: field_admin
       POSTGRES_PASSWORD: field_secure_password_2026
     ports:
-      - 5432:5432
+      - 5433:5432
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -18,19 +16,16 @@ services:
       timeout: 5s
       retries: 5
 
-  minio:
-    image: minio/minio:latest
-    container_name: field_backend_minio
-    command: server /data --console-address :9001
+  s3mock:
+    image: adobe/s3mock:latest
+    container_name: field_backend_s3mock
     environment:
-      MINIO_ROOT_USER: minioadmin
-      MINIO_ROOT_PASSWORD: minioadmin
+      initialBuckets: field-engineering-blueprints,field-engineering-storage
     ports:
-      - 9000:9000
-      - 9001:9001
+      - 9000:9090
     volumes:
-      - minio_data:/data
+      - s3_data:/root/.s3mock
 
 volumes:
   postgres_data:
-  minio_data:
+  s3_data:
