@@ -34,3 +34,5 @@
 *.log
 .env
 .env.local
+
+uploads/
