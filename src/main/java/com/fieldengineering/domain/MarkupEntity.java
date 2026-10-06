@@ -14,6 +14,9 @@ public class MarkupEntity extends PanacheEntityBase {
     @Column(name = "drawing_id", nullable = false)
     public String drawingId;
 
+    @Column(name = "revision_id")
+    public String revisionId;
+
     @Column(name = "page_number", nullable = false)
     public int pageNumber = 1;
 
@@ -46,6 +49,12 @@ public class MarkupEntity extends PanacheEntityBase {
 
     @Column(name = "created_by", nullable = false)
     public String createdBy;
+
+    @Column(nullable = false)
+    public String status = "Open";
+
+    @Column(nullable = false)
+    public boolean deleted = false;
 
     @Column(nullable = false)
     public int version = 1;
