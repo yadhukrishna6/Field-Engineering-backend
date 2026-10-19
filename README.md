@@ -1,4 +1,4 @@
-﻿# Field Engineering - Standalone Quarkus REST API Backend
+# Field Engineering - Standalone Quarkus REST API Backend
 
 A high-performance, cloud-native REST API backend for the Field Engineering Tablet Application, built with **Java 17**, **Quarkus 3.8.3**, **Hibernate ORM with Panache**, **PostgreSQL**, **Flyway**, and **AWS S3 / MinIO Object Storage**.
 
@@ -60,20 +60,20 @@ field-engineering-backend/
 
 | Resource | Path | Description |
 | :--- | :--- | :--- |
-| **Authentication** | POST /api/auth/login | Authenticate user & issue JWT |
-| **Two-Way Delta Sync** | POST /api/sync/batch | Offline queue batch sync & conflict resolution |
-| **Projects** | GET/POST /api/projects | Field projects management |
-| **Drawings** | GET/POST /api/drawings | Blueprints, vector tiles, PDF metadata |
-| **Revisions** | GET/POST /api/revisions | Blueprint revisions and comparison |
-| **Markups** | GET/POST /api/markups | Vector drawing annotations & callouts |
-| **Measurements** | GET/POST /api/measurements | Calibrated CAD measurements |
-| **Issues / Punch List** | GET/POST /api/issues | Deficiency tracking & status updates |
-| **Photos** | GET/POST /api/photos | Site photo evidence & S3 storage |
-| **Inspections** | GET/POST /api/inspections | Checklists & sign-offs |
-| **Equipment** | GET/POST /api/equipment | Heavy equipment tracking & QR tags |
-| **Reports** | GET/POST /api/reports | Daily report generation |
-| **Voice Notes** | GET/POST /api/voice-notes | Field voice memos |
-| **Audit Trail** | GET /api/audit-logs | Immutable audit log trail |
+| **Authentication** | POST /api/v1/auth/login | Authenticate user & issue JWT |
+| **Two-Way Delta Sync** | POST /api/v1/sync/batch | Offline queue batch sync & conflict resolution |
+| **Projects** | GET/POST /api/v1/projects | Field projects management |
+| **Drawings** | GET/POST /api/v1/drawings | Blueprints, vector tiles, PDF metadata & uploads |
+| **Revisions** | GET/POST /api/v1/revisions | Blueprint revisions and comparison |
+| **Markups** | GET/POST /api/v1/markups | Vector drawing annotations & callouts |
+| **Measurements** | GET/POST /api/v1/measurements | Calibrated CAD measurements |
+| **Issues / Punch List** | GET/POST /api/v1/issues | Deficiency tracking & status updates |
+| **Photos** | GET/POST /api/v1/photos | Site photo evidence & S3 storage |
+| **Inspections** | GET/POST /api/v1/inspections | Checklists & sign-offs |
+| **Equipment** | GET/POST /api/v1/equipment | Heavy equipment tracking & QR tags |
+| **Reports** | GET/POST /api/v1/reports | Daily report generation |
+| **Voice Notes** | GET/POST /api/v1/voice-notes | Field voice memos |
+| **Audit Trail** | GET /api/v1/audit-logs | Immutable audit log trail |
 
 ---
 
