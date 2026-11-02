@@ -1,6 +1,5 @@
 package com.fieldengineering.resource;
 
-import com.fieldengineering.domain.DrawingEntity;
 import com.fieldengineering.domain.DrawingRevisionEntity;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
@@ -32,15 +31,6 @@ public class RevisionResource {
         rev.uploadedAt = Instant.now();
         rev.createdAt = Instant.now();
         rev.persist();
-
-        // Update drawing current revision pointer
-        DrawingEntity drawing = DrawingEntity.findById(rev.drawingId);
-        if (drawing != null) {
-            drawing.revision = rev.revisionNumber;
-            drawing.version += 1;
-            drawing.updatedBy = rev.uploadedBy;
-            drawing.updatedAt = Instant.now();
-        }
 
         return Response.status(Response.Status.CREATED).entity(rev).build();
     }
